@@ -1,0 +1,1886 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.root {
+    --font-lexend: 'Lexend', sans-serif;
+   }
+   
+   
+// Navbar
+.navbar {
+    width: 100%;
+    @include flexStyle(row, space-between, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: color(secondary);
+    @include container(100%, 0);
+    padding: 2rem 5%;
+    .logo {
+        img {
+            transform: scale(0.7);
+        }
+        p {
+            color: color(brand);
+            font-size: 1.2rem;
+            line-height: 100%;
+        }
+    }
+    .hamburger {
+        @include flexStyle(column, space-between, flex-end);
+        width: fit-content;
+        cursor: pointer;
+        height: 1rem;
+        span {
+            display: block;
+            width: 1.5rem;
+            height: 0.16rem;
+            background-color: rgb(67, 67, 67);
+            border-radius: 50px;
+            &:nth-child(2) {
+                width: 1.2rem;
+            }
+            &:nth-child(3) {
+                width: 1.3rem;
+            }
+        }
+        @include md {
+            display: none;
+        }
+    }
+    .menu {
+        display: none;
+        @include md {
+            @include flexStyle(row, space-between, center);
+            width: fit-content;
+            a {
+                font-size: 0.8rem;
+                font-weight: 300;
+                margin: 0 0.8em;
+                transition: all 0.3s linear;
+                font-weight: 600;
+                opacity: 0.8;
+                @include flexStyle(row, flex-start, center);
+                transition: all 0.3s linear;
+                span {
+                    padding: 0.4em;
+                    border-radius: 0.5em;
+                    display: block;
+                    margin-right: 0.4em;
+                }
+                &:hover {
+                    font-weight: 800;
+                    color: color(brand);
+                }
+            }
+            .signup {
+                @include button(0.8em, 0.8em, color(brand), color(secondary));
+                font-size: 0.7rem;
+                width: fit-content;
+                text-align: center;
+                @include flexStyle(row, center, center);
+                transition: all 0.3s linear;
+                &:hover {
+                    transform: scale(0.9);
+                    color: color(secondary);
+                }
+            }
+        }
+        @include lg {
+            @include flexStyle(row, space-between, center);
+            width: fit-content;
+            a {
+                font-size: 1rem;
+                font-weight: 300;
+                margin: 0 0.8em;
+                transition: all 0.3s linear;
+                font-weight: 600;
+                opacity: 0.8;
+                @include flexStyle(row, flex-start, center);
+                span {
+                    padding: 0.5em;
+                    border-radius: 0.5em;
+                    display: block;
+                    margin-right: 0.4em;
+                    svg {
+                        font-size: 16px;
+                    }
+                }
+                &:hover {
+                    font-weight: 800;
+                    color: color(brand);
+                }
+            }
+            .signup {
+                @include button(0.8em, 0.8em, color(brand), color(secondary));
+                font-size: 1rem;
+                width: fit-content;
+                text-align: center;
+                @include flexStyle(row, center, center);
+                &:hover {
+                    transform: scale(0.9);
+                    color: color(secondary);
+                }
+            }
+        }
+    }
+    @include md {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: color(secondary);
+        z-index: 100;
+        @include container(100%, 0);
+        padding: 1rem 5%;
+    }
+}
+
+// Footer
+.footer {
+    width: 100%;
+    background-color: #1e1e1e;
+    color: color(secondary);
+    padding: 1.5rem 0;
+    .container {
+        @include container(85%, 0);
+        .footer_header {
+            margin-top: 1rem;
+            .logo {
+                @include flexStyle(row, flex-start, center);
+                h1 {
+                    font-size: 1.5rem;
+                    color: color(lsecondary);
+                    font-weight: 700;
+                    line-height: 2.6rem;
+                }
+                margin-bottom: 1rem;
+            }
+            h5 {
+                font-size: 1rem;
+                font-weight: lighter;
+                opacity: 1;
+                p {
+                    font-size: 0.8rem;
+                    padding-top: 0.5rem;
+                }
+            }
+        }
+        .company {
+            margin-top: 2rem;
+            width: 100%;
+            h2 {
+                font-weight: 600;
+            }
+            .company_links {
+                margin-top: 1rem;
+                @include flexStyle(column, flex-start, flex-start);
+                p {
+                    margin: 0.5rem 0;
+                    opacity: 0.8;
+                }
+                a {
+                    font-size: 0.85rem;
+                    opacity: 0.8;
+                    margin: 0.3em 0;
+                    &:hover {
+                        color: color(lightbrand);
+                    }
+                }
+            }
+        }
+        .get_in_touch {
+            margin-top: 2rem;
+            width: 100%;
+            h2 {
+                font-weight: 600;
+            }
+            div {
+                width: 100%;
+                padding: 0.8em 0;
+                font-size: 0.8rem;
+                p {
+                    opacity: 0.8;
+                }
+            }
+            .socials {
+                margin-top: 1rem;
+                @include flexStyle(row, flex-start, center);
+                span {
+                    @include flexStyle(row, center, center);
+                    h3 {
+                        margin-right: 0.3em;
+                    }
+                }
+                ul {
+                    margin-left: 1em;
+                    @include flexStyle(row, flex-start, center);
+                    li {
+                        margin: 0 0.5rem;
+                        opacity: 0.5;
+                        transition: all 0.5s linear;
+                        &:hover {
+                            color: color(lightbrand);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            .email {
+                a {
+                    text-decoration: underline;
+                    color: color(lightbrand);
+                }
+            }
+            .address {
+                width: 100%;
+                padding: 0.8em 0;
+                font-size: 0.8rem;
+                p {
+                    opacity: 0.8;
+                }
+                a {
+                    text-decoration: underline;
+                    text-decoration-color: color(brand);
+                    text-transform: lowercase;
+                }
+            }
+        }
+        .footer_footer {
+            margin-top: 2rem;
+            width: 100%;
+            border-top: 1px solid #fafafabd;
+            span {
+                width: fit-content;
+                margin: 0 auto;
+                @include flexStyle(row, center, center);
+                padding: 1em 0;
+                p {
+                    opacity: 0.8;
+                    font-size: 0.85rem;
+                    width: fit-content;
+                    margin-left: 0.3rem;
+                }
+                &:nth-child(2) {
+                    font-size: 0.8rem;
+                    color: color(lightbrand);
+                }
+            }
+        }
+        @include md {
+            .footer_main {
+                @include flexStyle(row, space-between, flex-start);
+                div {
+                    width: 25%;
+                    .company_links {
+                        width: 100%;
+                    }
+                }
+                .footer_header {
+                    width: 40%;
+                }
+            }
+        }
+    }
+}
+
+
+// Menu
+.menubar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: color(secondary);
+    color: color(primary);
+    padding: 2rem 2rem;
+    padding-bottom: 3rem;
+    overflow: auto !important;
+    overflow-x: hidden !important;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 40rem;
+        height: 40rem;
+        background-image: url('../../../public/foreground.webp');
+        background-size: cover;
+        background-position: center center;
+        filter: blur(82px);
+    }
+    .menuHeader {
+        @include flexStyle(row, space-between, center);
+        .m_logo {
+            @include flexStyle(row, center, center);
+            img {
+                transform: scale(0.7);
+            }
+            p {
+                color: color(brand);
+                font-size: 1.2rem;
+                line-height: 100%;
+            }
+        }
+        svg {
+            color: color(primary);
+            stroke-width: 0.2rem;
+        }
+    }
+    .menuBody {
+        position: relative;
+        z-index: 1;
+        div {
+            margin-top: 2rem;
+            h2 {
+                font-size: 1.2rem;
+                font-weight: 400;
+                opacity: 0.5;
+            }
+            div {
+                margin-top: 1rem;
+                padding-left: 0.8rem;
+                font-size: 1rem;
+                h3 {
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    color: color(brand);
+                    opacity: 0.8;
+                    position: relative;
+                    width: fit-content;
+                    margin-bottom: 0.5rem;
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: relative;
+                        top: 0;
+                        right: 0;
+                        width: 1.2rem;
+                        height: 0.3rem;
+                        background-color: color(brand);
+                    }
+                }
+                ul {
+                    padding-left: 1rem;
+                    @include flexStyle(column, flex-start, flex-start);
+                    a {
+                        margin: 0.5rem 0;
+                        font-weight: 600;
+                        opacity: 0.8;
+                        @include flexStyle(row, flex-start, center);
+                        transition: all 0.3s linear;
+                        span {
+                            padding: 0.5em;
+                            border-radius: 0.5em;
+                            display: block;
+                            margin-right: 0.5em;
+                        }
+                        sup {
+                            padding-right: 0.5rem;
+                            color: color(brand);
+                            opacity: 0.5;
+                            font-weight: 800;
+                        }
+                        &:hover {
+                            color: color(brand);
+                            transform: scale(0.9);
+                        }
+                    }
+                }
+                
+            }
+        }
+        .menu_others_section {
+            margin-top: 1rem;
+            ul {
+                padding-left: 1rem;
+                @include flexStyle(column, flex-start, flex-start);
+                a {
+                    margin: 0.5rem 0;
+                    font-weight: 600;
+                    opacity: 0.8;
+                    transition: all 0.3s linear;
+                    sup {
+                        padding-right: 0.5rem;
+                        color: color(brand);
+                        opacity: 0.5;
+                        font-weight: 800;
+                    }
+                    &:hover {
+                        color: color(brand);
+                        transform: scale(0.9);
+                    }
+                }
+            }
+        }
+    }
+    .menuFooter {
+        @include flexStyle(column, center, center);
+        position: relative;
+        z-index: 1;
+        margin-bottom: 3rem;
+        .signup {
+            @include button(1em, 0.5em, color(brand), color(secondary));
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1em;
+            @include flexStyle(row, center, center);
+            &:hover {
+                transition: opacity 0.5s ease;
+                opacity: 0.5;
+            }
+        }
+        span {
+            width: 100%;
+            font-size: 0.95rem;
+            @include flexStyle(row, center, center);
+            a {
+                color: color(brand);
+                text-decoration: underline;
+                padding-left: 0.1rem;
+            }
+        }
+        @include pad {
+            width: 60%;
+            @include flexStyle(column, center, flex-start);
+            span {
+                @include flexStyle(row, flex-start, flex-start);
+            }
+        }
+    }
+}
+
+
+// Scroll down 
+.scrolldown {
+    width: 100%;
+    @include flexStyle(column, center, center);
+    opacity: 0.5;
+    margin-top: 2rem;
+    p {
+        font-size: 0.7rem;
+    }
+    @include pad {
+        margin-top: 0;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+// Home section one
+.Home_sectionone {
+    width: 100%;
+    min-height: 100vh;
+    background-color: color(primary);
+    color: color(secondary);
+    padding-top: 3rem;
+    .toggle_subsection {
+        @include container(85%, 0);
+        @include flexStyle(column, center, center);
+        h2 {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .toggle {
+            width: 80%;
+            @include flexStyle(row, space-around, center);
+            padding: 0.5em;
+            background-color: color(secondary);
+            border-radius: 10px;
+            margin-top: 1rem;
+            color: color(primary);
+            span {
+                padding: 0.5em;
+                width: 45%;
+                text-align: center;
+                border-radius: 10px;
+                &:hover {
+                    cursor: pointer;
+                }
+                &:nth-child(1) {
+                    background-color: color(brand);
+                    color: color(secondary);
+                }
+            }
+        }
+        @include pad {
+            @include container(85%, 0);
+            @include flexStyle(column, flex-start, flex-start);
+            h2 {
+                width: 60%;
+                text-align: left;
+                font-size: 1rem;
+                font-weight: 400;
+            }
+            .toggle {
+                width: 40%;
+                @include flexStyle(row, space-around, center);
+                padding: 0.5em;
+                background-color: color(secondary);
+                border-radius: 10px;
+                margin-top: 1rem;
+                color: color(primary);
+                span {
+                    padding: 0.5em;
+                    width: 45%;
+                    text-align: center;
+                    border-radius: 10px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &:nth-child(1) {
+                        background-color: color(brand);
+                        color: color(secondary);
+                    }
+                }
+            }
+        }
+        @include md {
+            @include container(85%, 0);
+            @include flexStyle(column, center, center);
+            h2 {
+                text-align: center;
+            }
+        }
+        @include lg {
+            @include container(50%, 0);
+        }
+    }
+    .subsections {
+        margin-top: 2rem;
+        width: 100%;
+        section {
+            &:nth-child(1) {
+                display: block;
+            }
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+        .student {
+            @include container(100%, 0);
+            .student_header {
+                @include container(85%, 0);
+                @include flexStyle(column, center, flex-start);
+                .student_infotext {
+                    margin-top: 1rem;
+                    h1 {
+                        font-size: 2rem;
+                        font-weight: 800;
+                        line-height: 120%;
+                        span {
+                            color: color(lightbrand);
+                        }
+                    }
+                    p {
+                        margin-top: 1rem;
+                        font-weight: lighter;
+                        opacity: 0.8;
+                    }
+                    a {
+                        @include button(0.8em, 1em, color(secondary), color(brand));
+                        margin-top: 1rem;
+                        font-weight: 500;
+                    }
+                }
+                .student_infoimage {
+                    margin: 0 auto;
+                    max-width: 100%;
+                    img {
+                        // border: 3px solid color(lightbrand);
+                        border-radius: 10px;
+                    }
+                }
+                .student_infoimage_responsive {
+                    display: none;
+                }
+                @include pad {
+                    .student_infotext {
+                        h1 {
+                            width: 80%;
+                            font-size: 2rem;
+                            font-weight: 800;
+                            line-height: 120%;
+                            span {
+                                color: color(lightbrand);
+                            }
+                        }
+                    }
+                    .student_infoimage {
+                        display: none !important;
+                    }
+                    .student_infoimage_responsive {
+                        display: none;
+                    }
+                }
+                @include md {
+                    margin-top: 5rem;
+                    @include flexStyle(row, space-between, center);
+                    .student_infotext {
+                        width: 60%;
+                        h1 {
+                            font-size: 2rem;
+                            font-weight: 800;
+                            line-height: 120%;
+                            span {
+                                color: color(lightbrand);
+                            }
+                        }
+                        p {
+                            margin-top: 1rem;
+                            font-weight: lighter;
+                            font-size: 1rem;
+                            opacity: 0.8;
+                            
+                        }
+                        a {
+                            @include button(0.8em, 1em, color(secondary), color(brand));
+                            margin-top: 1.5rem;
+                            font-weight: 500;
+                        }
+                    }
+                    .student_infoimage_responsive {
+                        width: 30%;
+                        justify-self: stretch;
+                        display: block !important;
+                    }
+                }
+                @include lg {
+                    .student_infotext {
+                        width: 60%;
+                        h1 {
+                            font-size: 3rem;
+                            font-weight: 800;
+                            line-height: 120%;
+                            width: 100%;
+                            span {
+                                color: color(lightbrand);
+                            }
+                        }
+                        p {
+                            margin-top: 1rem;
+                            font-weight: lighter;
+                            font-size: 1.2rem;
+                            opacity: 0.8;
+                            
+                        }
+                        a {
+                            @include button(0.8em, 1em, color(secondary), color(brand));
+                            margin-top: 1.5rem;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+            .student_why_choose_us {
+                @include container(90%, 2rem);
+                padding: 0 0.5rem;
+                padding-top: 2rem;
+                min-height: 100vh;
+                background-image: url('../../../public/net.webp');
+                background-position: center;
+                background-size: cover;
+                .swcu_header {
+                    .swcu_headertext {
+                        p {
+                            color: color(lightbrand);
+                            font-size: 1rem;
+                            font-weight: 800;
+                        }
+                        h1 {
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                        }
+                    }
+                    .swcu_headerimage {
+                        margin-top: 1rem;
+                        .swcu_headerimage_desktop {
+                            display: none;
+                        }
+                    }
+                }
+                ul {
+                    @include container(90%, 0);
+                    margin: 0;
+                    margin-top: 1.5rem;
+                    @include flexStyle(column, center, flex-start);
+                    li {
+                        margin-bottom: 2rem;
+                        span {
+                            display: block;
+                            padding: 1rem;
+                            width: fit-content;
+                            border-radius: 15px;
+                        }
+                        h4 {
+                            font-size: 1.05rem;
+                            font-weight: 600;
+                            margin-top: 0.5rem;
+                            position: relative;
+                            &:before {
+                                content: '';
+                                display: block;
+                                width: 2rem;
+                                height: 0.3rem;
+                                background-color: #FA9029;
+                                position: absolute;
+                                bottom: -30%;
+                                left: 0;
+                            }
+                        }
+                        p {
+                            font-size: 0.89rem;
+                            font-weight: 400;
+                            margin-top: 0.8rem;
+                        }
+                        &:nth-child(2) {
+                            h4 {
+                                &:before {
+                                    background-color: #F4C900;
+                                }
+                            }
+                        }
+                        &:nth-child(3) {
+                            h4 {
+                                &:before {
+                                    background-color: #6773C7;
+                                }
+                            }
+                        }
+                        &:nth-child(4) {
+                            h4 {
+                                &:before {
+                                    background-color: #35A162;
+                                }
+                            }
+                        }
+                    }
+                }
+                @include pad {
+                    background-image: url('../../../public/net.webp');
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: repeat;
+                    .swcu_header {
+                        @include flexStyle(row, space-between, center);
+                        @include container(100%, 0);
+                        .swcu_headertext {
+                            p {
+                                color: color(lightbrand);
+                                font-size: 1rem;
+                                font-weight: 800;
+                            }
+                            h1 {
+                                max-width: 80%;
+                                font-size: 2.5rem;
+                                font-weight: 400;
+                            }
+                        }
+                        .swcu_headerimage {
+                            margin-top: 1rem;
+                            .swcu_headerimage_desktop {
+                                display: none;
+                            }
+                        }
+                    }
+                    ul {
+                        @include container(100%, 4rem);
+                        margin-bottom: 0;
+                        @include flexStyle(row wrap, space-between, flex-start);
+                        li {
+                            max-width: 45%;
+                        }
+                    }
+                }
+                @include md {
+                    @include container(95%, 4rem);
+                    padding: 2rem 1rem;
+                    @include flexStyle(row, space-between, center);
+                    .swcu_header {
+                        @include flexStyle(column, center, flex-start);
+                        @include container(100%, 0);
+                        .swcu_headertext {
+                            p {
+                                color: color(lightbrand);
+                                font-size: 1rem;
+                                font-weight: 800;
+                            }
+                            h1 {
+                                max-width: 80%;
+                                font-size: 2.5rem;
+                                font-weight: 400;
+                            }
+                        }
+                        .swcu_headerimage {
+                            margin-top: 1rem;
+                            .swcu_headerimage_desktop {
+                                display: block;
+                            }
+                            .swcu_headerimage_mobile {
+                                display: none;
+                            }
+                        }
+                    }
+                    ul {
+                        @include container(100%, 0rem);
+                        margin-bottom: 0;
+                        @include flexStyle(row wrap, space-between, flex-start);
+                        li {
+                            max-width: 45%;
+                        }
+                    }
+                }
+            }
+            .ceo_note {
+                @include container(85%, 1rem);
+                span {
+                    display: block;
+                    @include flexStyle(row, flex-start, center);
+                    h1 {
+                        font-size: 5rem;
+                        line-height: 80%;
+                        color: color(lightbrand);
+                    }
+                    h4 {
+                        font-size: 1rem;
+                        font-weight: 800;
+                    }
+                }
+                .note_content {
+                    background-color: color(secondary);
+                    color: color(primary);
+                    font-size: 0.8rem;
+                    padding: 1rem;
+                    border-radius: 15px;
+                    p {
+                        text-align: center;
+                    }
+                }
+                @include pad {
+                    @include container(60%, 1rem);
+                }
+                @include md {
+                    @include container(40%, 2rem);
+                    span {
+                        display: block;
+                        @include flexStyle(row, flex-start, center);
+                        h1 {
+                            font-size: 10rem;
+                            line-height: 80%;
+                        }
+                        h4 {
+                            font-size: 2rem;
+                            font-weight: 800;
+                        }
+                    }
+                    .note_content {
+                        background-color: color(secondary);
+                        color: color(primary);
+                        font-size: 1rem;
+                        padding: 1rem;
+                        border-radius: 15px;
+                        p {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .landlord {
+            @include container(100%, 0);
+            .landlord_header {
+                @include container(85%, 0);
+                @include flexStyle(column, center, flex-start);
+                .landlord_infotext {
+                    margin-top: 1rem;
+                    h1 {
+                        font-size: 2rem;
+                        font-weight: 800;
+                        line-height: 120%;
+                        span {
+                            color: color(lightbrand);
+                        }
+                    }
+                    p {
+                        margin-top: 1rem;
+                        font-weight: lighter;
+                        opacity: 0.8;
+                    }
+                    a {
+                        @include button(0.8em, 1em, color(secondary), color(brand));
+                        margin-top: 1rem;
+                        font-weight: 500;
+                    }
+                }
+                .landlord_infoimage {
+                    margin: 0 auto;
+                    max-width: 100%;
+                    img {
+                        border-radius: 10px;
+                    }
+                }
+                .landlord_infoimage_responsive {
+                    display: none;
+                }
+                @include pad {
+                    .landlord_infotext {
+                        h1 {
+                            width: 80%;
+                            font-size: 2rem;
+                            font-weight: 800;
+                            line-height: 120%;
+                            span {
+                                color: color(lightbrand);
+                            }
+                        }
+                    }
+                    .landlord_infoimage {
+                        display: none !important;
+                    }
+                }
+                @include md {
+                    margin-top: 5rem;
+                    @include flexStyle(row, space-between, center);
+                    .landlord_infotext {
+                        width: 60%;
+                        h1 {
+                            font-size: 2rem;
+                            font-weight: 800;
+                            line-height: 120%;
+                            span {
+                                color: color(lightbrand);
+                            }
+                        }
+                        p {
+                            margin-top: 1rem;
+                            font-weight: lighter;
+                            font-size: 1rem;
+                            opacity: 0.8;
+                            
+                        }
+                        a {
+                            @include button(0.8em, 1em, color(secondary), color(brand));
+                            margin-top: 1.5rem;
+                            font-weight: 500;
+                        }
+                    }
+                    .landlord_infoimage_responsive {
+                        width: 30%;
+                        justify-self: stretch;
+                        display: block;
+                    }
+                }
+                @include lg {
+                    .landlord_infotext {
+                        margin-top: 1rem;
+                        h1 {
+                            font-size: 3rem;
+                            font-weight: 800;
+                            line-height: 120%;
+                            width: 100%;
+                            span {
+                                color: color(lightbrand);
+                            }
+                        }
+                    }
+                }
+            }
+            .landlord_why_choose_us {
+                @include container(90%, 2rem);
+                padding: 0 0.5rem;
+                padding-top: 2rem;
+                min-height: 100vh;
+                background-image: url('../../../public/net.webp');
+                background-position: center;
+                background-size: cover;
+                .swcu_header {
+                    .swcu_headertext {
+                        p {
+                            color: color(lightbrand);
+                            font-size: 1rem;
+                            font-weight: 800;
+                        }
+                        h1 {
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                        }
+                    }
+                    .swcu_headerimage {
+                        margin-top: 1rem;
+                        .swcu_headerimage_desktop {
+                            display: none;
+                        }
+                    }
+                }
+                ul {
+                    @include container(90%, 0);
+                    margin: 0;
+                    margin-top: 1.5rem;
+                    @include flexStyle(column, center, flex-start);
+                    li {
+                        margin-bottom: 2rem;
+                        span {
+                            display: block;
+                            padding: 1rem;
+                            width: fit-content;
+                            border-radius: 15px;
+                        }
+                        h4 {
+                            font-size: 1.05rem;
+                            font-weight: 600;
+                            margin-top: 0.5rem;
+                            position: relative;
+                            &:before {
+                                content: '';
+                                display: block;
+                                width: 2rem;
+                                height: 0.3rem;
+                                background-color: #4ade80;
+                                position: absolute;
+                                bottom: -30%;
+                                left: 0;
+                            }
+                        }
+                        p {
+                            font-size: 0.89rem;
+                            font-weight: 400;
+                            margin-top: 0.8rem;
+                        }
+                        &:nth-child(2) {
+                            h4 {
+                                &:before {
+                                    background-color: #F4C900;
+                                }
+                            }
+                        }
+                        &:nth-child(3) {
+                            h4 {
+                                &:before {
+                                    background-color: #6773C7;
+                                }
+                            }
+                        }
+                        &:nth-child(4) {
+                            h4 {
+                                &:before {
+                                    background-color: #35A162;
+                                }
+                            }
+                        }
+                    }
+                }
+                @include pad {
+                    background-image: url('../../../public/net.webp');
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: repeat;
+                    .swcu_header {
+                        @include flexStyle(row, space-between, center);
+                        @include container(100%, 0);
+                        .swcu_headertext {
+                            p {
+                                color: color(lightbrand);
+                                font-size: 1rem;
+                                font-weight: 800;
+                            }
+                            h1 {
+                                max-width: 80%;
+                                font-size: 2.5rem;
+                                font-weight: 400;
+                            }
+                        }
+                        .swcu_headerimage {
+                            margin-top: 1rem;
+                            .swcu_headerimage_desktop {
+                                display: none;
+                            }
+                        }
+                    }
+                    ul {
+                        @include container(100%, 4rem);
+                        margin-bottom: 0;
+                        @include flexStyle(row wrap, space-between, flex-start);
+                        li {
+                            max-width: 45%;
+                        }
+                    }
+                }
+                @include md {
+                    @include container(95%, 4rem);
+                    padding: 2rem 1rem;
+                    @include flexStyle(row, space-between, center);
+                    .swcu_header {
+                        @include flexStyle(column, center, flex-start);
+                        @include container(100%, 0);
+                        .swcu_headertext {
+                            p {
+                                color: color(lightbrand);
+                                font-size: 1rem;
+                                font-weight: 800;
+                            }
+                            h1 {
+                                max-width: 80%;
+                                font-size: 2.5rem;
+                                font-weight: 400;
+                            }
+                        }
+                        .swcu_headerimage {
+                            margin-top: 1rem;
+                            .swcu_headerimage_desktop {
+                                display: block;
+                            }
+                            .swcu_headerimage_mobile {
+                                display: none;
+                            }
+                        }
+                    }
+                    ul {
+                        @include container(100%, 0rem);
+                        margin-bottom: 0;
+                        @include flexStyle(row wrap, space-between, flex-start);
+                        li {
+                            max-width: 45%;
+                        }
+                    }
+                }
+            }
+            .ceo_note {
+                @include container(85%, 1rem);
+                span {
+                    display: block;
+                    @include flexStyle(row, flex-start, center);
+                    h1 {
+                        font-size: 5rem;
+                        line-height: 80%;
+                    }
+                    h4 {
+                        font-size: 1rem;
+                        font-weight: 800;
+                    }
+                }
+                .note_content {
+                    background-color: color(secondary);
+                    color: color(primary);
+                    font-size: 0.8rem;
+                    padding: 1rem;
+                    border-radius: 15px;
+                    p {
+                        text-align: center;
+                    }
+                }
+                @include pad {
+                    @include container(60%, 1rem);
+                }
+                @include md {
+                    @include container(40%, 2rem);
+                    span {
+                        display: block;
+                        @include flexStyle(row, flex-start, center);
+                        h1 {
+                            font-size: 10rem;
+                            line-height: 80%;
+                        }
+                        h4 {
+                            font-size: 2rem;
+                            font-weight: 800;
+                        }
+                    }
+                    .note_content {
+                        background-color: color(secondary);
+                        color: color(primary);
+                        font-size: 1rem;
+                        padding: 1rem;
+                        border-radius: 15px;
+                        p {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .other_products {
+        width: 100%;
+        margin-top: 4rem;
+        padding: 3rem 0;
+        position: relative;
+        @include foreground(10%, 50%, 20rem, 20rem);
+        min-height: 100vh;
+        @include flexStyle(column, center, center);
+        .container {
+            @include container(85%, 0);
+            padding: 1em 0;
+            .header {
+                text-align: center;
+                h1 {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    line-height: 2.2rem;
+                }
+                p {
+                    font-size: 0.85rem;
+                    font-weight: 400;
+                    padding: 0.5em 0;
+                } 
+            }
+            .slider_wrapper {
+                @include container(100%, 3rem);
+                margin-bottom: 1rem;
+                .op_swiper {
+                    width: 100%;
+                    max-width: fit-content;
+                    padding-right: 3em;
+                    .op_slide {
+                        width: 100%;
+                        border-radius: 20px;
+                        background-color: #0C00B9;
+                        margin-right: 0.5em;
+                        .slide_image {
+                            width: 100%;
+                            img {
+                                width: 100% !important;
+                                border-radius: 20px 0;
+                            }
+                        }
+                        .slide_info {
+                            padding: 1em;
+                            height: 200px;
+                            @include flexStyle(column, space-between, flex-start);
+                            h1 {
+                                font-size: 1.2rem;
+                                font-weight: 800;
+                            }
+                            p {
+                                padding: 0.5em 0;
+                                font-size: 0.8rem;
+                            }
+                            a {
+                                @include button(0.3em, 0.5em, color(secondary), color(brand));
+                                width: fit-content;
+                                @include flexStyle(row, space-between, center);
+                                position: relative;
+                                top: 0%;
+                                font-weight: 700;
+                                p {
+                                    padding-right: 1em;
+                                }
+                            }
+                        }
+                        &:nth-child(2) {
+                            background-color: #B96F00;
+                        }
+                        &:nth-child(3) {
+                            background-color: #00B981;
+                        }
+                        &:nth-child(4) {
+                            background-color: #7E00B9;
+                        }
+                        &:nth-child(5) {
+                            background-color: #413F48;
+                        }
+                    }
+                }
+            }
+            .responsive_products {
+                display: none;
+            }
+            // Responsive styles
+            @include pad {
+                .header {
+                    text-align: center;
+                    h1 {
+                        font-size: 2rem;
+                        font-weight: 700;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+                .slider_wrapper {
+                    display: none !important;
+                }
+                .responsive_products {
+                    @include flexStyle(row, space-around, center);
+                    @include container(70%, 1rem);
+                    .rp_one, .rp_two {
+                        width: 100%;
+                        border-radius: 20px;
+                        background-color: #0C00B9;
+                        margin-right: 0.5em;
+                        .slide_image {
+                            width: 100%;
+                            img {
+                                width: 100% !important;
+                                border-radius: 20px 0;
+                            }
+                        }
+                        .slide_info {
+                            padding: 1em;
+                            height: 200px;
+                            @include flexStyle(column, space-between, flex-start);
+                            h1 {
+                                font-size: 1.2rem;
+                                font-weight: 800;
+                            }
+                            p {
+                                padding: 0.5em 0;
+                                font-size: 0.8rem;
+                            }
+                            a {
+                                @include button(0.3em, 0.5em, color(secondary), color(brand));
+                                width: fit-content;
+                                @include flexStyle(row, space-between, center);
+                                position: relative;
+                                top: 0%;
+                                font-weight: 700;
+                                p {
+                                    padding-right: 1em;
+                                }
+                            }
+                        }
+                        &:nth-child(2) {
+                            background-color: #B96F00;
+                        }
+                        &:nth-child(3) {
+                            background-color: #00B981;
+                        }
+                        &:nth-child(4) {
+                            background-color: #7E00B9;
+                        }
+                        &:nth-child(5) {
+                            background-color: #413F48;
+                        }
+                    }
+                }
+            }
+            @include md {
+                @include flexStyle(row, space-between, center);
+                .header {
+                    width: 40%;
+                    @include flexStyle(column, flex-start, flex-start);
+                    text-align: left;
+                }
+                .responsive_products {
+                    width: 50%;
+                    @include flexStyle(row, space-around, center);
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+// Testimonial
+.testimonial {
+    width: 100%;
+    background-color: color(secondary);
+    color: color(primary);
+    position: relative;
+    @include foreground(10%, 50%, 20rem, 20rem);
+    &:before {
+        filter: blur(50px) !important;
+    }
+    .container {
+        @include container(85%, 0);
+        padding: 3rem 0;
+        position: relative;
+        .header {
+            h6 {
+                font-size: 1rem;
+                font-weight: 800;
+                color: color(brand);
+                padding: 0.5em 0;
+            }
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 1.7rem;
+            }
+            p {
+                font-size: 0.85rem;
+                font-weight: 400;
+                padding: 1em 0;
+            }
+        }
+        .slide_wrapper {
+            @include container(100%, 1rem);
+            .swiper_wrapper {
+                .swiper_slide {
+                    width: 100%;
+                    color: color(secondary);
+                    .slide_container {
+                        @include container(95%, 0);
+                        padding: 0.8em;
+                        border-radius: 0 15px 15px 15px;
+                        div {
+                            .profile_image {
+                                img {
+                                    border-radius: 100%;
+                                }
+                            }
+                            &:nth-child(1) {
+                                @include flexStyle(row, flex-start, center);
+                                .profile_image {
+                                    width: 40px !important;
+                                }
+                                .profile_details {
+                                    @include flexStyle(column, center, flex-start);
+                                    margin-left: 1em;
+                                    h4 {
+                                        font-size: 0.8rem;
+                                        font-weight: 600;
+                                    }
+                                    p {
+                                        font-size: 0.75rem;
+                                        font-weight: 400;
+                                    }
+                                }
+                            }
+                            &:nth-child(2) {
+                                margin: 0.5em 0;
+                                p {
+                                    font-size: 0.7rem;
+                                    font-weight: 400;
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(1), &:nth-child(3) {
+                        .slide_container {
+                            background-color: color(brand);
+                        }
+                    }
+                    &:nth-child(2), &:nth-child(4) {
+                        .slide_container {
+                            background-color: color(primary);
+                        }
+                    }
+                }
+            }
+        }
+        .responsive {
+            display: none;
+        }
+        @include pad {
+            .slide_wrapper {
+                display: none;
+            }
+            .responsive {
+                @include container(100%, 1rem);
+                @include flexStyle(row wrap, space-between, center);
+                .swiper_slide {
+                    width: 50%;
+                    color: color(secondary);
+                    margin-bottom: 0.8rem;
+                    .slide_container {
+                        @include container(95%, 0);
+                        padding: 0.8em;
+                        border-radius: 0 15px 15px 15px;
+                        div {
+                            .profile_image {
+                                img {
+                                    border-radius: 100%;
+                                }
+                            }
+                            &:nth-child(1) {
+                                @include flexStyle(row, flex-start, center);
+                                .profile_image {
+                                    width: 40px !important;
+                                }
+                                .profile_details {
+                                    @include flexStyle(column, center, flex-start);
+                                    margin-left: 1em;
+                                    h4 {
+                                        font-size: 0.8rem;
+                                        font-weight: 600;
+                                    }
+                                    p {
+                                        font-size: 0.75rem;
+                                        font-weight: 400;
+                                    }
+                                }
+                            }
+                            &:nth-child(2) {
+                                margin: 0.5em 0;
+                                p {
+                                    font-size: 0.7rem;
+                                    font-weight: 400;
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(1), &:nth-child(4) {
+                        .slide_container {
+                            background-color: color(brand);
+                        }
+                    }
+                    &:nth-child(2), &:nth-child(3) {
+                        .slide_container {
+                            background-color: color(primary);
+                        }
+                    }
+                }
+            }
+        }
+        @include md {
+            @include flexStyle(row, space-between, flex-start);
+            .header {
+                width: 30%;
+            }
+            .responsive {
+                width: 65%;
+            }
+        }
+        @include lg {
+            .header {
+                h6 {
+                    font-size: 1.2rem;
+                    font-weight: 800;
+                    color: color(brand);
+                    padding: 0.5em 0;
+                }
+                h1 {
+                    font-size: 2rem;
+                    font-weight: 600;
+                    line-height: 2.5rem;
+                }
+                p {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    padding: 1em 0;
+                }
+            }
+            .responsive {
+                .swiper_slide {
+                    width: 50%;
+                    color: color(secondary);
+                    margin-bottom: 0.8rem;
+                    .slide_container {
+                        @include container(95%, 0);
+                        padding: 0.8em;
+                        border-radius: 0 15px 15px 15px;
+                        div {
+                            &:nth-child(1) {
+                                @include flexStyle(row, flex-start, center);
+                                .profile_image {
+                                    width: 40px !important;
+                                }
+                                .profile_details {
+                                    @include flexStyle(column, center, flex-start);
+                                    margin-left: 1em;
+                                    h4 {
+                                        font-size: 1rem;
+                                        font-weight: 600;
+                                    }
+                                    p {
+                                        font-size: 0.8rem;
+                                        font-weight: 400;
+                                    }
+                                }
+                            }
+                            &:nth-child(2) {
+                                margin: 0.5em 0;
+                                p {
+                                    font-size: 0.8rem;
+                                    font-weight: 400;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Faqs
+.faqs {
+    width: 100%;
+    padding-top: 3rem;
+    background-color: #F4F5F5;
+    @include foreground(10%, 50%, 20rem, 20rem);
+    &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        right: 50%;
+        width: 30rem;
+        height: 30rem;
+        background-image: url('../../../public/foreground.webp');
+        background-size: cover;
+        background-position: center center;
+        filter: blur(82px);
+		z-index: 0;
+    }
+    .header {
+        @include container(85%, 1rem);
+        h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: color(brand);
+            padding: 0.5em 0;
+        }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.7rem;
+        }
+    }
+    .toggle {
+        @include container(85%, 2rem);
+        @include flexStyle(column, flex-start, flex-start);
+        span {
+            margin: 0.1rem 0;
+            cursor: pointer;
+            &:nth-child(1) {
+                color: color(brand);
+                position: relative;
+                h1 {
+                    padding-left: 1rem;
+                    font-weight: bold;
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: 0.2rem;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: color(brand);
+                    }
+                }
+                
+            }
+            &:nth-child(2) {
+                opacity: 0.5;
+            }
+        }
+    }
+    .faq_wrapper {
+        .questions {
+            @include container(85%, 2rem);
+            .question {
+                width: 100%;
+                padding-bottom: 1em;
+                border-bottom: 2px solid #2a2a2a60;
+                font-size: 0.85rem;
+                margin-bottom: 2rem;
+                span {
+                    z-index: 10;
+                    position: relative;
+                    &:nth-child(1) {
+                        @include flexStyle(row, space-between, center);
+                        p {
+                            font-weight: 600;
+                            width: 90%;
+                        }
+                        svg {
+                            cursor: pointer;
+                        }
+                    }
+                    &:nth-child(2) {
+                        display: none;
+                        padding-top: 1em;
+                        a {
+                            color: color(brand);
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .faqs_cta {
+            @include container(85%, 2rem);
+            a {
+                @include button(0.8em, 1em, color(brand), color(secondary));
+                width: fit-content;
+                @include flexStyle(row, space-between, center);
+                margin-top: 2rem;
+                font-weight: 400;
+                p {
+                    padding-right: 1em;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+    
+    .subscribe {
+        width: 100%;
+        background-color: #ffffff;
+        padding: 2rem 0;
+        .app_image {
+            @include container(50%, 1rem);
+        }
+        .form {
+            @include container(80%, 1rem);
+            text-align: center;
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 800;
+            }
+            .support_success {
+                display: block;
+                margin: 0.8rem 0;
+                position: relative;
+                padding: 0.3rem;
+                padding-left: 0.6rem;
+                font-size: 0.8rem;
+                font-weight: 600;
+                background-color: #ccffd2;
+                display: none;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 3px;
+                    background-color: rgb(11, 213, 0);
+                }
+            }
+            form {
+                margin-top: 2rem;
+                label {
+                    font-size: 1rem;
+                    opacity: 0.8;
+                }
+                input {
+                    margin-top: 0.5rem;
+                    width: 90%;
+                    padding: 0.5rem 0.8em;
+                    background-color: color(secondary);
+                    border: 2px solid #2a2a2a32;
+                    border-radius: 5px;
+                    &::placeholder {
+                        font-size: 0.85rem;
+                        font-weight: 700;
+                        color: color(primary);
+                        opacity: 0.5;
+                    }
+                    &:active, &:focus-within {
+                        border-color: color(brand);
+                        outline: color(brand);
+                    }
+                }
+                button {
+                    @include button(0.8em, 1em, color(brand), color(secondary));
+                    @include container(90%, 1rem);
+                    font-size: 0.9rem;
+                    font-weight: lighter !important;
+                }
+            }
+        }
+        @include pad {
+            padding: 2rem 7%;
+            @include flexStyle(row, space-between, center);
+            .app_image {
+                width: 40%;
+            }
+            .form {
+                width: 50%;
+                @include flexStyle(column, center, flex-end);
+                h1 {
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                    text-align: right;
+                }
+                p {
+                    text-align: right;
+                }
+                .support_success {
+                    display: block;
+                    margin: 0.8rem 0;
+                    position: relative;
+                    padding: 0.3rem;
+                    padding-left: 0.6rem;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    background-color: #ccffd2;
+                    display: none;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 3px;
+                        background-color: rgb(11, 213, 0);
+                    }
+                }
+                form {
+                    width: 80%;
+                    margin-top: 2rem;
+                    @include flexStyle(column, center, flex-end);
+                    label {
+                        font-size: 1rem;
+                        opacity: 0.8;
+                    }
+                    input {
+                        margin-top: 0.5rem;
+                        width: 100%;
+                        padding: 0.5rem 0.8em;
+                        background-color: color(secondary);
+                        border: 2px solid #2a2a2a32;
+                        border-radius: 5px;
+                        &::placeholder {
+                            font-size: 0.85rem;
+                            font-weight: 700;
+                            color: color(primary);
+                            opacity: 0.5;
+                        }
+                        &:active, &:focus-within {
+                            border-color: color(brand);
+                            outline: color(brand);
+                        }
+                    }
+                    button {
+                        @include button(0.8em, 1em, color(brand), color(secondary));
+                        @include container(100%, 1rem);
+                        margin: 0;
+                        margin-top: 1rem;
+                        font-size: 0.9rem;
+                        font-weight: lighter !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// NB
+.NB {
+    display: none;
+    @include pad {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        display: flex !important;
+        @include flexStyle(column, center, center);
+        background-color: color(primary);
+        height: 100vh !important;
+        width: 100%;
+        z-index: 100;
+        p {
+            background-color: color(secondary);
+            width: 60%;
+            padding: 1em;
+            font-size: 0.85rem;
+            font-weight: 400;
+            border-radius: 0px 15px 15px 15px;
+            border: 3px solid color(brand);
+            span {
+                font-size: 1.5rem;
+                font-weight: 700;
+                display: block;
+            }
+            @include md {
+                width: 40%;
+            }
+        }
+    }
+}

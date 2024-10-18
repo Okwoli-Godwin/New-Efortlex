@@ -1,0 +1,80 @@
+@mixin flexStyle($Direction, $Justify, $Align) {
+	display: flex;
+	flex-flow: $Direction;
+	justify-content: $Justify;
+	align-items: $Align;
+	align-content: center;
+}
+
+@mixin container($Width, $TB){
+	width: $Width;
+	margin: $TB auto;
+}
+
+@mixin button($tb, $lr, $bg, $color) {
+	padding: $tb $lr;
+	background-color: $bg;
+	color: $color;
+	border: 2px solid $bg;
+	border-radius: 10px;
+	display: block;
+	width: fit-content;
+	font-weight: 500;
+	transition: all 0.3s linear;
+	&:hover{
+		transform: scale(0.99);
+		border: 2px solid color(accent-2);
+	}
+}
+
+@mixin foreground($top, $left, $width, $height) {
+	position: relative;
+	overflow-x: hidden !important;
+    overflow-y: hidden !important;
+	&:before {
+        content: '';
+        position: absolute;
+        top: $top;
+        left: $left;
+        width: $width;
+        height: $height;
+        background-image: url('../../../public/foreground.webp');
+        background-size: cover;
+        background-position: center center;
+        filter: blur(82px);
+		z-index: 0;
+    }
+}
+
+@mixin link ($icon-color){
+	width: fit-content;
+	display: block;
+	font-weight: 500;
+	color: color(accent-2);
+	.arrowRight {
+		color: $icon-color;
+	}
+	&:hover{
+		opacity: 0.5;
+	}
+}
+
+@mixin md {
+	@media (min-width: 991px) {
+		@content;
+	}
+}
+
+@mixin pad {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width: 1050px) {
+		@content;
+	}
+}
+
+
