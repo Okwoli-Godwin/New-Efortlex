@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useQuery, QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
+
 import DashboardTable from './DashboardTable';
 import UpComing from './Upcoming';
 
@@ -16,21 +15,9 @@ const data: DataItem[] = [
   { label: 'No. of Tenants', value: 40, color: 'linear-gradient(to right, #5C00B2, #CF5FDB)' },
 ];
 
-const limit = 10;
 
-type Props = {
-  params: {};
-  searchParams: {
-    page: string;
-  };
-};
 
-const fetchProperties = async (offset: number, limit: number) => {
-  // Simulate fetching properties, replace with real API call
-  // const response = await fetchLandlordProperties({ offset, limit });
-  // return response.data;
-  return data;
-};
+
 
 const DashboardHome = () => {
   // const [queryClient] = useState(() => new QueryClient());

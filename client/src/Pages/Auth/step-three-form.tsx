@@ -1,27 +1,22 @@
-import { RegisterSchemaType } from "./Schema";
+
 import PinInput from "react-pin-input";
 import { useState } from "react";
 import { Button } from "../../components/Ui/button";
 import { ArrowRight } from "lucide-react";
 import {Link} from "react-router-dom";
 // import { resendEmailVerification } from "../services/resend-email-verification";
-import { toast } from "sonner";
 import { MoonLoader } from "react-spinners";
 // import { validateEmail } from "../services/validate-email";
-import { useNavigate } from "react-router-dom";
 
-type Props = {
-  values: RegisterSchemaType;
-  returnUrl: string;
-};
-export const StepThreeForm = (props: Props) => {
+
+
+export const StepThreeForm = () => {
   // const { values, returnUrl } = props;
 
-  const router = useNavigate();
 
   const [token, setToken] = useState("");
-  const [isCodeLoading, setIsCodeLoading] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isCodeLoading] = useState(false);
+  const [isLoading] = useState(false);
 
   // const handleSubmit = () => {
   //   setIsLoading(true);
@@ -81,7 +76,7 @@ export const StepThreeForm = (props: Props) => {
             height: "50px",
             width: "50px",
           }}
-          onComplete={(value, index) => {}}
+          onComplete={() => {}}
           regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
         />
 

@@ -1,20 +1,12 @@
-import React, { useState } from 'react'
+
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import { MoonLoader } from 'react-spinners'
 
-type Props = {
-  offset: number
-  limit: number
-  page: number
-}
+
 
 const DashboardTable = () => {
-//   const { limit, offset, page } = props;
-  const [modal, setModal] = useState<{ open: boolean }>({ open: false });
-  const [updateModal, setUpdateModal] = useState<{ open: boolean }>({ open: false });
 
-  const isPending = false; // Placeholder for loading state
-  const data = []; // Placeholder for fetched data
+  const isPending = false;
 
   if (isPending)
     return (
@@ -47,7 +39,7 @@ const DashboardTable = () => {
             <td className="pr-6 py-4 whitespace-nowrap">Available</td>
             <td className="pr-6 py-4 whitespace-nowrap">3</td>
             <td className="text-right whitespace-nowrap">
-              <a href="#" onClick={() => setModal({ open: true })} className="py-1.5 px-3 ">
+              <a href="#"  className="py-1.5 px-3 ">
                 <HiOutlineDotsHorizontal className='text-[18px]' />
               </a>
             </td>

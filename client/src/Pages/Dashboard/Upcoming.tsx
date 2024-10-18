@@ -1,8 +1,8 @@
-import React from 'react'
+
 import { IoIosArrowForward } from 'react-icons/io'
 import img from '../../assets/joyce.png'
 
-type Props = {}
+
 
 export const UpcomingData = [
   {

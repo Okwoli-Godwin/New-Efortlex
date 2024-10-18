@@ -19,7 +19,6 @@ import { AlignLeft, ArrowUpRight, Bell, Search } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 // import { useSidebarStore } from "../store/sidebar-store";
 import { IoIosArrowDown } from "react-icons/io";
-import { useState } from "react";
 
 type Props = {
   isTenant: boolean;
@@ -31,12 +30,6 @@ const DashboardHeader = ({ isTenant }: Props) => {
   const location = useLocation();
 //   const { user } = useUser();
 
-  const [input, setInput] = useState("");
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    // navigate(`/apartment/search/${slugify(input)}`);
-  };
 
   return (
     <div className="h-[70px] w-full pr-[12px] pl-[12px] flex items-center justify-between">

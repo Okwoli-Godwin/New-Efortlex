@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react";
+import {  useState } from "react";
 import { useFormik } from "formik";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/Ui/card";
 import { Button } from "../../components/Ui/button";
@@ -15,7 +15,6 @@ import img from "../../assets/0c852e02ca48e46aff3741fc18a0652d.jpeg"
 
 const Register = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const stepperRef = useRef<{ nextStep: () => void; previousStep: () => void } | null>(null);
 
   const {
     handleSubmit,
@@ -39,7 +38,7 @@ const Register = () => {
     validateOnChange: true,
     validateOnBlur: true,
     validateOnMount: true,
-    onSubmit: async (values) => {
+    onSubmit: async () => {
       // try {
       //   const results = await createAccount(values);
       //   if (results.ok) {
@@ -123,7 +122,7 @@ const Register = () => {
                   />
                 )}
                 {activeStep === 2 && (
-                  <StepThreeForm values={values} returnUrl="" />
+                  <StepThreeForm   />
                 )}
                 <div className="mt-6 flex justify-between">
                   <Button
