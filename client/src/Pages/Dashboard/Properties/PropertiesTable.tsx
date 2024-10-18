@@ -8,6 +8,7 @@ import { Badge } from "../../../components/Ui/badge"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../../../components/Ui/dropdown-menu"
 import { Search, Filter, X, Plus, MoreHorizontal, ChevronDown } from "lucide-react"
 import { RiCloseFill } from "react-icons/ri";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../../../components/Ui/dialog"
 
 const statusColor = {
   AVAILABLE: { color: "text-green-700", bg: "bg-green-100" },
@@ -38,7 +39,7 @@ const dummyData: Property[] = [
     location: "Lagos, Nigeria",
     type: "2 Bedroom",
     rentAmount: 400000,
-    status: "AVAILABLE",
+    status: "RENTED",
     tenants: 0,
   },
   {
@@ -49,12 +50,21 @@ const dummyData: Property[] = [
     status: "AVAILABLE",
     tenants: 0,
   },
+  {
+    name: "Godwin Apartments",
+    location: "Lagos, Nigeria",
+    type: "2 Bedroom",
+    rentAmount: 400000,
+    status: "RENTED",
+    tenants: 0,
+  },
   // Add more dummy data as needed
 ]
 
 export default function PropertiesTable() {
   const [searchTerm, setSearchTerm] = useState("")
   const [filters, setFilters] = useState<string[]>([])
+  const [selectedProperty, setSelectedProperty] = useState<Property | null>(null)
 
   const addFilter = (filter: string) => {
     if (!filters.includes(filter)) {
@@ -174,17 +184,29 @@ export default function PropertiesTable() {
                 </TableCell>
                 <TableCell>{property.tenants}</TableCell>
                 <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="h-8 w-8 p-0">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="ghost" className="h-8 w-8 p-0" onClick={() => setSelectedProperty(property)}>
                         <MoreHorizontal className="h-4 w-4" />
                       </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                    </DialogTrigger>
+                    <DialogContent className="bg-[#fff]">
+                      <DialogHeader>
+                        <DialogTitle>{selectedProperty?.name}</DialogTitle>
+                      </DialogHeader>
+                      <div className="py-4">
+                        <p><strong>Location:</strong> {selectedProperty?.location}</p>
+                        <p><strong>Type:</strong> {selectedProperty?.type}</p>
+                        <p><strong>Rent Amount:</strong> ₦ {selectedProperty?.rentAmount.toLocaleString()}</p>
+                        <p><strong>Status:</strong> {selectedProperty?.status}</p>
+                        <p><strong>Tenants:</strong> {selectedProperty?.tenants}</p>
+                      </div>
+                      <div className="flex justify-end space-x-2">
+                        <Button variant="outline" onClick={() => console.log("Edit property")}>Edit</Button>
+                        <Button variant="destructive" onClick={() => console.log("Delete property")}>Delete</Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </TableCell>
               </TableRow>
             ))}
